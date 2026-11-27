@@ -293,9 +293,12 @@ section {
 .contact-container {
     max-width: 650px;
     margin: auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 40px;
     background: var(--secondary);
-    padding: 45px 30px;
+    padding: 45px;
     border-radius: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -316,8 +319,48 @@ section {
     line-height: 1.8;
 }
 
+.contact-copy > p:not(.welcome) {
+    margin-bottom: 25px;
+}
+
 .contact-info {
-    margin: 25px 0;
+    display: grid;
+    gap: 18px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+    background: #263c4a;
+    border-radius: 14px;
+}
+
+.contact-icon {
+    font-size: 24px;
+}
+
+.contact-item h4 {
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+.contact-item p,
+.contact-link {
+    font-size: 14px;
+}
+
+.contact-link {
+    display: inline-block;
+    color: var(--gray);
+    overflow-wrap: anywhere;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--accent);
 }
 
 /* FOOTER */
@@ -352,6 +395,11 @@ footer {
 
     .cards {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
 }
