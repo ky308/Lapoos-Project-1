@@ -87,13 +87,16 @@ nav a:hover::after {
 /* COMMON SECTION */
 section {
     min-height: 100vh;
-    padding: 120px 10% 80px;
+    padding: clamp(100px, 12vh, 130px) 8% clamp(60px, 8vh, 90px);
+    scroll-margin-top: 20px;
 }
 
 .heading {
+    max-width: 1120px;
+    margin: 0 auto 48px;
     text-align: center;
     font-size: 40px;
-    margin-bottom: 55px;
+    line-height: 1.2;
 }
 
 /* HOME */
@@ -101,10 +104,12 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: clamp(32px, 6vw, 80px);
 }
 
 .home-content {
+    flex: 1;
+    min-width: 0;
     max-width: 650px;
 }
 
@@ -162,6 +167,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 0 0 auto;
 }
 
 .profile {
@@ -198,22 +204,26 @@ section {
 }
 
 .about-container {
+    width: 100%;
     max-width: 900px;
     margin: auto;
 }
 
 .about-description {
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
     color: var(--gray);
     text-align: center;
     line-height: 2;
     font-size: 17px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
 }
 
 .info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 18px;
 }
 
 .info-card {
@@ -242,12 +252,21 @@ section {
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    gap: clamp(16px, 2vw, 25px);
+}
+
+.skills .cards,
+.hobbies .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .card {
+    height: 100%;
     background: var(--secondary);
-    padding: 35px 25px;
+    padding: 32px 22px;
     text-align: center;
     border-radius: 18px;
     border: 1px solid #263c4a;
@@ -291,10 +310,11 @@ section {
 }
 
 .contact-container {
-    max-width: 650px;
+    width: 100%;
+    max-width: 900px;
     margin: auto;
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(250px, 1fr);
     align-items: center;
     gap: 40px;
     background: var(--secondary);
@@ -389,11 +409,17 @@ footer {
         padding-top: 150px;
     }
 
+    .home-content {
+        flex: 0 1 auto;
+    }
+
     .home-content h1 {
         font-size: 38px;
     }
 
-    .cards {
+    .cards,
+    .skills .cards,
+    .hobbies .cards {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -423,7 +449,7 @@ footer {
     }
 
     section {
-        padding: 140px 7% 70px;
+        padding: 145px 7% 65px;
     }
 
     .home-content h1 {
@@ -436,12 +462,15 @@ footer {
     }
 
     .info-grid,
-    .cards {
+    .cards,
+    .skills .cards,
+    .hobbies .cards {
         grid-template-columns: 1fr;
     }
 
     .heading {
-        font-size: 32px;
+        font-size: 34px;
+        margin-bottom: 36px;
     }
 
 }
