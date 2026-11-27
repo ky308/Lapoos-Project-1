@@ -306,8 +306,49 @@ section {
     transition: transform 0.3s ease;
 }
 
+.skills .tech-icon {
+    display: grid;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 20px;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 22px;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-icon--html {
+    color: #e34f26;
+    background: rgba(227, 79, 38, 0.12);
+}
+
+.tech-icon--css {
+    color: #1572b6;
+    background: rgba(21, 114, 182, 0.14);
+    font-size: 38px;
+}
+
+.tech-icon--php {
+    color: #8892bf;
+    background: rgba(136, 146, 191, 0.14);
+    font-size: 25px;
+}
+
+.tech-icon--cpp {
+    color: #659ad2;
+    background: rgba(101, 154, 210, 0.14);
+    font-size: 24px;
+}
+
 .card:hover .icon {
     transform: translateY(-4px) scale(1.08);
+}
+
+.skills .card:hover .tech-icon {
+    box-shadow: 0 8px 20px rgba(0, 217, 255, 0.16);
 }
 
 .card h3 {
