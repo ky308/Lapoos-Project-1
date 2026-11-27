@@ -40,6 +40,12 @@ header {
     font-weight: bold;
     color: var(--white);
     text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
 }
 
 .logo span,
@@ -48,15 +54,34 @@ header {
 }
 
 nav a {
+    position: relative;
+    display: inline-block;
     color: var(--white);
     text-decoration: none;
     margin-left: 25px;
     font-size: 15px;
-    transition: 0.3s;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    content: "";
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 nav a:hover {
     color: var(--accent);
+    transform: translateY(-2px);
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
 }
 
 /* COMMON SECTION */
@@ -119,12 +144,17 @@ section {
     text-decoration: none;
     border-radius: 30px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
     background: var(--white);
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 217, 255, 0.25);
+}
+
+.btn:active {
+    transform: translateY(-1px);
 }
 
 /* PROFILE IMAGE */
@@ -142,6 +172,12 @@ section {
     border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 0 30px rgba(0, 217, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba(0, 217, 255, 0.28);
 }
 
 .profile img {
@@ -149,6 +185,11 @@ section {
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+.profile:hover img {
+    transform: scale(1.05);
 }
 
 /* ABOUT */
@@ -180,6 +221,12 @@ section {
     padding: 25px;
     border-radius: 15px;
     border-left: 4px solid var(--accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 217, 255, 0.12);
 }
 
 .info-card h3 {
@@ -204,7 +251,7 @@ section {
     text-align: center;
     border-radius: 18px;
     border: 1px solid #263c4a;
-    transition: 0.3s;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -216,6 +263,11 @@ section {
 .icon {
     font-size: 45px;
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .icon {
+    transform: translateY(-4px) scale(1.08);
 }
 
 .card h3 {
@@ -245,6 +297,12 @@ section {
     background: var(--secondary);
     padding: 45px 30px;
     border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 217, 255, 0.1);
 }
 
 .contact-container h3 {
@@ -338,4 +396,13 @@ footer {
         font-size: 32px;
     }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }
